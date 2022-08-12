@@ -1,0 +1,27 @@
+server:
+  # 指定端口
+  port: 9001
+spring:
+  profiles:
+    active: dev
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.liyk.apps.**.pojo
+  #在application.yml（.properties）中增加配置，在控制台打印sql：
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+#logback输出日志配置
+logging:
+  config: classpath:logback-spring.xml
+#  控制屏蔽对应包的日志打印
+#  level:
+#   com.springboot.sixmonth.controller: 'off'

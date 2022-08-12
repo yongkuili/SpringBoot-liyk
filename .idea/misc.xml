@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/parent/pom.xml" />
+        <option value="$PROJECT_DIR$/apps/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/generate/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/comm/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/core/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/tools-comm/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectResources">
+    <resource url="http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" location="$PROJECT_DIR$/../../IDEA/mybatis-generator-config_1_0.dtd" />
+    <resource url="http://www.padual.com/java/logback.xsd" location="$PROJECT_DIR$/../../IDEA/logback.xsd" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

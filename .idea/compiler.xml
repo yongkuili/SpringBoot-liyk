@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tools-core" />
+        <module name="apps" />
+        <module name="tools-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="apps" target="1.8" />
+      <module name="comm" target="8" />
+      <module name="core" target="8" />
+      <module name="generate" target="1.8" />
+      <module name="parent" target="1.8" />
+      <module name="tools" target="1.8" />
+      <module name="tools-comm" target="1.8" />
+      <module name="tools-common" target="1.8" />
+      <module name="tools-core" target="1.8" />
+      <module name="tools-generate" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="apps" options="-parameters" />
+      <module name="comm" options="-parameters" />
+      <module name="core" options="-parameters" />
+      <module name="generate" options="-parameters" />
+      <module name="tools-comm" options="-parameters" />
+      <module name="tools-common" options="-parameters" />
+      <module name="tools-core" options="-parameters" />
+    </option>
+  </component>
+</project>

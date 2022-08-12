@@ -1,0 +1,30 @@
+package com.liyk.apps.sys.dao;
+
+import java.util.List;
+
+import com.liyk.apps.sys.pojo.SysRoleMenu;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Mapper
+public interface SysRoleMenuMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(SysRoleMenu record);
+
+    int insertSelective(SysRoleMenu record);
+
+    SysRoleMenu selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(SysRoleMenu record);
+
+    int updateByPrimaryKey(SysRoleMenu record);
+
+	List<SysRoleMenu> findRoleMenus(@Param(value="roleId") Long roleId);
+	
+	List<SysRoleMenu> findAll();
+
+	int deleteByRoleId(@Param(value="roleId") Long roleId);
+}

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.virtuald:curvesapi:1.07">
+    <CLASSES>
+      <root url="jar://E:/开发工具/apache-maven-3.8.2/repository/com/github/virtuald/curvesapi/1.07/curvesapi-1.07.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://E:/开发工具/apache-maven-3.8.2/repository/com/github/virtuald/curvesapi/1.07/curvesapi-1.07-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://E:/开发工具/apache-maven-3.8.2/repository/com/github/virtuald/curvesapi/1.07/curvesapi-1.07-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
