@@ -46,7 +46,7 @@ public class SysLogServiceImpl  implements SysLogService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		Object label = pageRequest.getParam("userName");
+		Object label = pageRequest.getParamValue("userName");
 		if(label != null) {
 			return MybatisPageHelper.findPage(pageRequest, sysLogMapper, "findPageByUserName", label);
 		}

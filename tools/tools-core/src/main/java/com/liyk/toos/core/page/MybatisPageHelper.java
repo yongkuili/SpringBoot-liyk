@@ -39,6 +39,7 @@ public class MybatisPageHelper {
 		int pageNum = pageRequest.getPageNum();
 		int pageSize = pageRequest.getPageSize();
 		PageHelper.startPage(pageNum, pageSize);
+		System.out.println("----------------->"+mapper.getClass());
 		// 利用反射调用查询方法
 		Object result = ReflectionUtils.invoke(mapper, queryMethodName, args);
 		return getPageResult(pageRequest, new PageInfo((List) result));

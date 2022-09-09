@@ -55,7 +55,7 @@ public class SysRoleServiceImpl  implements SysRoleService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		Object label = pageRequest.getParam("name");
+		Object label = pageRequest.getParamValue("name");
 		if(label != null) {
 			return MybatisPageHelper.findPage(pageRequest, sysRoleMapper, "findPageByName", label);
 		}

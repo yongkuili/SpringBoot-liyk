@@ -51,8 +51,9 @@ public class ReflectionUtils {
 	 */
 	public static Method getMethod(Class<? extends Object> clazz, String name, Object[] args) {
 		Method queryMethod = null;
-		Method[] methods = clazz.getMethods();
+		Method[] methods = clazz.getDeclaredMethods();
 		for(Method method:methods) {
+			System.out.println(method.getName());
 			if(method.getName().equals(name)) {
 				Class<?>[] parameterTypes = method.getParameterTypes();
 				if(parameterTypes.length == args.length) {
@@ -62,6 +63,9 @@ public class ReflectionUtils {
 						if(arg == null) {
 							arg = "";
 						}
+						System.out.println("=====================================");
+						System.out.println(parameterTypes[i]);
+						System.out.println(args[i].getClass());
 						if(!parameterTypes[i].equals(args[i].getClass())) {
 							isSameMethod = false;
 						}
