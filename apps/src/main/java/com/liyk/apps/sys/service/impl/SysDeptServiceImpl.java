@@ -6,9 +6,9 @@ import java.util.List;
 import com.liyk.apps.sys.dao.SysDeptMapper;
 import com.liyk.apps.sys.pojo.SysDept;
 import com.liyk.apps.sys.service.SysDeptService;
-import com.liyk.toos.core.page.MybatisPageHelper;
-import com.liyk.toos.core.page.PageRequest;
-import com.liyk.toos.core.page.PageResult;
+import com.liyk.tools.core.page.MybatisPageHelper;
+import com.liyk.tools.core.page.PageRequest;
+import com.liyk.tools.core.page.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.liyk.apps.sys.pojo.SysDept;
 import com.liyk.apps.sys.service.SysDeptService;
-import com.liyk.toos.core.http.HttpResult;
+import com.liyk.tools.core.http.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;

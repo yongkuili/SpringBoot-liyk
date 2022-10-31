@@ -1,4 +1,4 @@
-package com.liyk.toos.core.exception;
+package com.liyk.tools.core.exception;
 
 /**
  * 自定义异常

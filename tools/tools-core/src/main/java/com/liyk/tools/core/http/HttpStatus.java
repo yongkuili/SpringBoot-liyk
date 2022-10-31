@@ -1,4 +1,4 @@
-package com.liyk.toos.core.http;
+package com.liyk.tools.core.http;
 
 /**
  * Constants enumerating the HTTP status codes.

@@ -16,7 +16,7 @@ import com.liyk.apps.sys.vo.LoginBean;
 import com.liyk.apps.util.PasswordUtils;
 import com.liyk.apps.util.SecurityUtils;
 import com.liyk.tools.common.util.IOUtils;
-import com.liyk.toos.core.http.HttpResult;
+import com.liyk.tools.core.http.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.GetMapping;

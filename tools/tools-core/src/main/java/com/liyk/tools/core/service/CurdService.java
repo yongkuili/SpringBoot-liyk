@@ -1,9 +1,9 @@
-package com.liyk.toos.core.service;
+package com.liyk.tools.core.service;
 
 import java.util.List;
 
-import com.liyk.toos.core.page.PageRequest;
-import com.liyk.toos.core.page.PageResult;
+import com.liyk.tools.core.page.PageRequest;
+import com.liyk.tools.core.page.PageResult;
 
 /**
  * 通用CURD接口

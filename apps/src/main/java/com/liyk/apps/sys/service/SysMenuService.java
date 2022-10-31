@@ -1,7 +1,7 @@
 package com.liyk.apps.sys.service;
 
 import com.liyk.apps.sys.pojo.SysMenu;
-import com.liyk.toos.core.service.CurdService;
+import com.liyk.tools.core.service.CurdService;
 
 import java.util.List;
 

@@ -2,8 +2,8 @@ package com.liyk.apps.sys.service;
 
 import com.liyk.apps.sys.pojo.SysUser;
 import com.liyk.apps.sys.pojo.SysUserRole;
-import com.liyk.toos.core.page.PageRequest;
-import com.liyk.toos.core.service.CurdService;
+import com.liyk.tools.core.page.PageRequest;
+import com.liyk.tools.core.service.CurdService;
 import java.io.File;
 import java.util.List;
 import java.util.Set;
