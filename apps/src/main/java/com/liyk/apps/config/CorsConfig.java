@@ -18,7 +18,7 @@ public class CorsConfig implements WebMvcConfigurer {
         // 允许跨域访问的路径
         registry.addMapping("/**")
                 // 允许跨域访问的源
-                .allowedOrigins("*")
+                .allowedOriginPatterns("*")
                 // 允许请求方法
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 // 预检间隔时间
