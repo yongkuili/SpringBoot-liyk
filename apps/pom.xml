@@ -76,6 +76,21 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
             <version>2.2.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>2.6.5</version>
+        </dependency>
+        <!--进行redisTemplate配置时需要此包-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <!--reids版本为1.4.1版本以上需要添加-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -1,7 +1,11 @@
 package com.liyk.apps.sys.controller;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -14,18 +18,17 @@ import com.liyk.apps.sys.pojo.SysUser;
 import com.liyk.apps.sys.service.SysUserService;
 import com.liyk.apps.sys.vo.LoginBean;
 import com.liyk.apps.util.PasswordUtils;
+import com.liyk.apps.util.RedisUtils;
 import com.liyk.apps.util.SecurityUtils;
 import com.liyk.tools.common.util.IOUtils;
 import com.liyk.tools.core.http.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import sun.misc.BASE64Encoder;
 
 /**
  * 登录控制器
@@ -33,6 +36,7 @@ import com.google.code.kaptcha.Producer;
  * @date Jan 14, 2019
  */
 @RestController
+@CrossOrigin
 public class SysLoginController {
 
 	@Autowired
@@ -42,23 +46,24 @@ public class SysLoginController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@GetMapping("captcha.jpg")
-	public void captcha(HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
-		response.setHeader("Cache-Control", "no-store, no-cache");
-		response.setContentType("image/jpeg");
-
-		// 生成文字验证码
+	@GetMapping("kaptcha")
+	public Map<String,String> getKaptcha() throws IOException {
+		// 以当前毫秒数生成随机key，注意高并发情况下，这不是一种好的选择
+		String key = System.currentTimeMillis()+"";
 		String text = producer.createText();
-		// 生成图片验证码
+		// 将生成的验证码保存到redis中，并设置有效期为1分种
+		RedisUtils.set(key,text,60);
 		BufferedImage image = producer.createImage(text);
-		// 保存到验证码到 session
-		request.getSession().setAttribute(Constants.KAPTCHA_SESSION_KEY, text);
-
-		ServletOutputStream out = response.getOutputStream();
-		ImageIO.write(image, "jpg", out);	
-		IOUtils.closeQuietly(out);
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		ImageIO.write(image,"png",outputStream);
+		BASE64Encoder encoder = new BASE64Encoder();
+		String encode = encoder.encode(outputStream.toByteArray());
+		encode= "data:image/png;base64,"+encode;
+		Map<String,String> codes = new HashMap<>();
+		codes.put("key",key);
+		codes.put("code",encode);
+		return codes;
 	}
-
 	/**
 	 * 登录接口
 	 */
@@ -67,14 +72,17 @@ public class SysLoginController {
 		String username = loginBean.getAccount();
 		String password = loginBean.getPassword();
 		String captcha = loginBean.getCaptcha();
-		// 从session中获取之前保存的验证码跟前台传来的验证码进行匹配
-		Object kaptcha = request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+		String unique = loginBean.getUnique();
+		/*// 从session中获取之前保存的验证码跟前台传来的验证码进行匹配
+		Object kaptcha = request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);*/
+		Object kaptcha = RedisUtils.get(unique);
 		if(kaptcha == null){
 			return HttpResult.error("验证码已失效");
 		}
 		if(!captcha.equals(kaptcha)){
 			return HttpResult.error("验证码不正确");
 		}
+		RedisUtils.del(unique);
 		// 用户信息
 		SysUser user = sysUserService.findByName(username);
 		// 账号不存在、密码错误

@@ -10,7 +10,8 @@ public class LoginBean {
 	private String account;
 	private String password;
 	private String captcha;
-	
+	private String unique;
+
 	public String getAccount() {
 		return account;
 	}
@@ -29,5 +30,12 @@ public class LoginBean {
 	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
 	}
-	
+
+	public String getUnique() {
+		return unique;
+	}
+
+	public void setUnique(String unique) {
+		this.unique = unique;
+	}
 }
