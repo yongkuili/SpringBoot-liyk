@@ -1,5 +1,26 @@
 <template>
-  <el-form :model="loginForm" :rules="fieldRules" ref="loginForm" label-position="left" label-width="0px" class="demo-ruleForm login-container">
+  <body class="login">
+  <div class="vue-particles">
+    <vue-particles
+      color="#dedede"
+      :particleOpacity="0.7"
+      :particlesNumber="80"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#dedede"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      style="height: 100%"
+    ></vue-particles>
+  </div>
+  <el-form :model="loginForm" :rules="fieldRules" ref="loginForm" label-position="left" label-width="0px" class="demo-ruleForm login-container ">
     <span class="tool-bar">
       <!-- 主题切换 -->
       <theme-picker style="float:right;" class="theme-picker" :default="themeColor" @onThemeChange="onThemeChange"></theme-picker>
@@ -31,6 +52,7 @@
       <el-button type="primary" style="width:48%;" @click.native.prevent="login" :loading="loading">登 录</el-button>
     </el-form-item>
   </el-form>
+  </body>
 </template>
 
 <script>
@@ -141,4 +163,26 @@ export default {
       margin: 0px 0px 35px 0px;
     }
   }
+.login {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+
+  .vue-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background: url(~@/assets/images/bg.jpg) top no-repeat;
+    background-size: cover;
+    // background: radial-gradient(
+    //   ellipse at top left,
+    //   rgba(0, 0, 0, 1) 0%,
+    //   rgba(0, 0, 0, 1) 57%
+    // );
+  }
+}
 </style>
